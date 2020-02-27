@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * SOZO Design Ltd
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ *
+ * @category    SOZO Design Ltd
+ * @package     Sozo_AdminCategoryImageUpload
+ * @copyright   Copyright (c) 2020 SOZO Design Ltd (https://sozodesign.co.uk)
+ * @license     http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Admin Category image upload fix for Magento 2.3.4 -->
+    <type name="Magento\Catalog\Model\ImageUploader">
+        <plugin name="Namespace_Module::fix_magento_bug_with_image_move"
+                type="Namespace\Module\Plugin\Catalog\Model\ImageUploaderPlugin"/>
+    </type>
+    <type name="Magento\Catalog\Model\Category\Attribute\Backend\Image">
+        <plugin name="Namespace_Module::fix_magento_bug_with_image_save"
+                type="Namespace\Module\Plugin\Catalog\Model\Category\Attribute\Backend\ImagePlugin"/>
+    </type>
+    <!-- EO: Admin Category image upload fix for Magento 2.3.4 -->
+</config>
